@@ -425,18 +425,29 @@ h1,h2,h3,p{margin:0}
 .cband-right{flex:1;min-width:280px}
 .map-wrap{border-radius:18px;overflow:hidden;height:300px;border:3px solid rgba(201,86,26,.28);box-shadow:0 24px 64px -20px rgba(0,0,0,.55)}
 .map-wrap iframe{width:100%;height:100%;border:0;display:block}
-.nearby-sec{background:var(--bg)}
-.nearby-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:52px}
-.nearby-colhead{display:flex;align-items:center;gap:10px;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--accent)}
-.nearby-colhead svg{color:var(--accent);flex:none}
-.nearby-colhead span{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--deep);text-transform:uppercase;letter-spacing:.12em}
-.nearby-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(16,38,31,.1);align-items:flex-start}
-.nearby-item:last-child{border-bottom:none}
-.nearby-num{flex:none;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,var(--accent) 12%,transparent);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;color:var(--accent);margin-top:2px}
-.nearby-name{font-weight:700;font-size:15px;color:var(--deep);display:block;line-height:1.3}
-.nearby-desc{font-size:13px;color:var(--mid);margin-top:3px;display:block;line-height:1.5}
-.nearby-km{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);padding:2px 9px;border-radius:999px;margin-top:5px;border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
-@media(max-width:820px){.nearby-grid{grid-template-columns:1fr;gap:36px}}
+.nearby-sec{background:#f8f4ee}
+.nearby-sec .head-row{margin-bottom:0}
+.nearby-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.nearby-card{border-radius:20px;overflow:hidden;border:1px solid rgba(16,38,31,.1);background:#fff;transition:transform .45s cubic-bezier(.2,.7,.1,1),box-shadow .45s}
+.nearby-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px -18px rgba(16,38,31,.22)}
+.ncard-img{position:relative;height:210px;overflow:hidden}
+.ncard-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;display:block}
+.nearby-card:hover .ncard-img img{transform:scale(1.08)}
+.ncard-badges{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center}
+.ncard-type{font-size:10px;font-weight:700;padding:4px 11px;border-radius:999px;backdrop-filter:blur(10px);letter-spacing:.06em;text-transform:uppercase}
+.ncard-type.tourist{background:rgba(201,86,26,.88);color:#fff}
+.ncard-type.photo{background:rgba(16,38,31,.82);color:#fff}
+.ncard-dist{font-size:10px;font-weight:700;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.88);color:var(--accent);backdrop-filter:blur(10px)}
+.ncard-body{padding:20px}
+.ncard-name{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--deep);line-height:1.25;margin-bottom:8px}
+.ncard-desc{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:16px}
+.ncard-dir{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;padding:9px 18px;border-radius:999px;border:1.5px solid var(--accent);transition:all .35s cubic-bezier(.2,.7,.1,1);white-space:nowrap}
+.ncard-dir:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(201,86,26,.5)}
+.ncard-dir svg{flex:none}
+.nearby-sec-label{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin:44px 0 20px;display:flex;align-items:center;gap:12px}
+.nearby-sec-label::after{content:"";flex:1;height:1px;background:color-mix(in srgb,var(--accent) 25%,transparent)}
+@media(max-width:900px){.nearby-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.nearby-cards{grid-template-columns:1fr}}
 .hero{position:relative;height:960px;overflow:hidden}
 .hero-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-start;padding-top:180px}
 .h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(44px,7.6vw,122px);line-height:.96;letter-spacing:-.035em;color:var(--deep)}
@@ -857,6 +868,81 @@ h1,h2,h3,p{margin:0}
 <div class="head-row">
 <div>
 <div class="eyebrow">Around Bonfire</div>
+<h2 class="sec" style="max-width:18ch">Nearby places &amp; photo points.</h2>
+</div>
+<p class="lead">Just minutes from our door, some of Munnar's most breathtaking spots await. Plan your days, then come back to the warmth of Bonfire.</p>
+</div>
+
+<div class="nearby-sec-label">Tourist Places</div>
+<div class="nearby-cards">
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1536337005238-94b997371b40?w=600&h=420&fit=crop&q=80" alt="Eravikulam National Park" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 13 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Eravikulam National Park</h3><p class="ncard-desc">UNESCO-listed home of the endangered Nilgiri Tahr. Stunning high-altitude grasslands and rolling montane scenery.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Eravikulam+National+Park+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=600&h=420&fit=crop&q=80" alt="Mattupetty Dam" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 13 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Mattupetty Dam &amp; Lake</h3><p class="ncard-desc">Scenic shola reservoir with speed boat rides, Indo-Swiss dairy farm and stunning tea estate reflections on still water.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Mattupetty+Dam+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=420&fit=crop&q=80" alt="Kundala Lake" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 20 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Kundala Lake</h3><p class="ncard-desc">Tranquil high-altitude lake with pedal boating, apple orchards and lush green valley all around.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Kundala+Lake+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&h=420&fit=crop&q=80" alt="Attukal Waterfalls" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 9 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Attukal Waterfalls</h3><p class="ncard-desc">A beautiful tiered waterfall hidden inside dense shola forest — perfect for a cool morning visit.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Attukal+Waterfalls+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?w=600&h=420&fit=crop&q=80" alt="Chinnakanal Waterfalls" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 18 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Chinnakanal Waterfalls</h3><p class="ncard-desc">Also called Power House Falls — a dramatic waterfall that plunges into a rocky gorge flanked by thick forest.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Chinnakanal+Waterfalls+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=420&fit=crop&q=80" alt="Tea Museum Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 2 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Tea Museum</h3><p class="ncard-desc">Walk through 100 years of Munnar's tea heritage — guided tour of vintage machinery and working factory floor.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Tea+Museum+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+</div>
+
+<div class="nearby-sec-label" style="margin-top:52px">Photo Points</div>
+<div class="nearby-cards">
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=420&fit=crop&q=80" alt="Pothamedu Viewpoint" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 3 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Pothamedu Viewpoint</h3><p class="ncard-desc">360° panorama of tea, coffee and cardamom estates — arguably Munnar's most beautiful sunrise location.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Pothamedu+Viewpoint+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=600&h=420&fit=crop&q=80" alt="Photo Point Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 13 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Photo Point</h3><p class="ncard-desc">The iconic hilltop viewpoint known simply as Photo Point — sweeping valley vistas in every direction.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Photo+Point+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&h=420&fit=crop&q=80" alt="Echo Point Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 15 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Echo Point</h3><p class="ncard-desc">Shout and hear your voice echo across the lake and valley. Stunning reflections on still water mornings.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Echo+Point+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1479030160180-b1f2a945af4c?w=600&h=420&fit=crop&q=80" alt="Top Station Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 32 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Top Station</h3><p class="ncard-desc">The highest road-accessible point in Munnar — misty views stretching into Tamil Nadu's plains far below.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Top+Station+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+<div class="nearby-card">
+<div class="ncard-img"><img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&h=420&fit=crop&q=80" alt="Rajamala Grasslands" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 13 km</span></div></div>
+<div class="ncard-body"><h3 class="ncard-name">Rajamala Grasslands</h3><p class="ncard-desc">Rolling montane grasslands above 2,000 m — golden hour light on the hills is simply unforgettable.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Rajamala+Eravikulam+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div>
+</div>
+
+</div>
+</div>
+</section>
+<div class="wrap">
+<div class="head-row">
+<div>
+<div class="eyebrow">Around Bonfire</div>
 <h2 class="sec" style="max-width:16ch">Nearby places &amp; photo points.</h2>
 </div>
 <p class="lead">Just minutes from our door, some of Munnar's most beautiful viewpoints and attractions wait for you. Plan your days, then come back to the warmth of Bonfire.</p>
@@ -976,6 +1062,35 @@ h1,h2,h3,p{margin:0}
 </div>
 
 </div>
+</div>
+</div>
+</section>
+
+<section class="nearby-sec sec-pad" id="nearby-main">
+<div class="wrap">
+<div class="head-row">
+<div>
+<div class="eyebrow">Around Bonfire</div>
+<h2 class="sec" style="max-width:18ch">Nearby places &amp; photo points.</h2>
+</div>
+<p class="lead">Just minutes from our door, some of Munnar's most breathtaking spots await. Plan your days, then come back to the warmth of Bonfire.</p>
+</div>
+<div class="nearby-sec-label">Tourist Places</div>
+<div class="nearby-cards">
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1536337005238-94b997371b40?w=600&h=420&fit=crop&q=80" alt="Eravikulam National Park" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 13 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Eravikulam National Park</h3><p class="ncard-desc">UNESCO-listed home of the endangered Nilgiri Tahr. Stunning high-altitude grasslands and rolling montane scenery.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Eravikulam+National+Park+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=600&h=420&fit=crop&q=80" alt="Mattupetty Dam" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 13 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Mattupetty Dam &amp; Lake</h3><p class="ncard-desc">Scenic shola reservoir with speed boat rides, Indo-Swiss dairy farm and stunning tea estate reflections on still water.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Mattupetty+Dam+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=420&fit=crop&q=80" alt="Kundala Lake" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 20 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Kundala Lake</h3><p class="ncard-desc">Tranquil high-altitude lake with pedal boating, apple orchards and lush green valley all around.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Kundala+Lake+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&h=420&fit=crop&q=80" alt="Attukal Waterfalls" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 9 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Attukal Waterfalls</h3><p class="ncard-desc">A beautiful tiered waterfall hidden inside dense shola forest — perfect for a cool morning visit.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Attukal+Waterfalls+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?w=600&h=420&fit=crop&q=80" alt="Chinnakanal Waterfalls" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 18 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Chinnakanal Waterfalls</h3><p class="ncard-desc">Also called Power House Falls — a dramatic waterfall that plunges into a rocky gorge flanked by thick forest.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Chinnakanal+Waterfalls+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=420&fit=crop&q=80" alt="Tea Museum Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type tourist">Tourist Place</span><span class="ncard-dist">≈ 2 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Tea Museum</h3><p class="ncard-desc">Walk through 100 years of Munnar's tea heritage — guided tour of vintage machinery and working factory floor.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Tea+Museum+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+</div>
+<div class="nearby-sec-label" style="margin-top:52px">Photo Points</div>
+<div class="nearby-cards">
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=420&fit=crop&q=80" alt="Pothamedu Viewpoint" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 3 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Pothamedu Viewpoint</h3><p class="ncard-desc">360° panorama of tea, coffee and cardamom estates — arguably Munnar's most beautiful sunrise location.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Pothamedu+Viewpoint+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=600&h=420&fit=crop&q=80" alt="Photo Point Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 13 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Photo Point</h3><p class="ncard-desc">The iconic hilltop viewpoint known simply as Photo Point — sweeping valley vistas in every direction.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Photo+Point+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&h=420&fit=crop&q=80" alt="Echo Point Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 15 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Echo Point</h3><p class="ncard-desc">Shout and hear your voice echo across the lake and valley. Stunning reflections on still water mornings.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Echo+Point+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1479030160180-b1f2a945af4c?w=600&h=420&fit=crop&q=80" alt="Top Station Munnar" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 32 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Top Station</h3><p class="ncard-desc">The highest road-accessible point in Munnar — misty views stretching into Tamil Nadu's plains far below.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Top+Station+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
+<div class="nearby-card"><div class="ncard-img"><img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&h=420&fit=crop&q=80" alt="Rajamala Grasslands" loading="lazy" decoding="async"><div class="ncard-badges"><span class="ncard-type photo">Photo Point</span><span class="ncard-dist">≈ 13 km</span></div></div><div class="ncard-body"><h3 class="ncard-name">Rajamala Grasslands</h3><p class="ncard-desc">Rolling montane grasslands above 2,000 m — golden hour light on the hills is simply unforgettable.</p><a href="https://www.google.com/maps/dir/?api=1&destination=Rajamala+Eravikulam+Munnar+Kerala" target="_blank" rel="noopener" class="ncard-dir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Get Directions</a></div></div>
 </div>
 </div>
 </section>
